@@ -2,23 +2,17 @@ import streamlit as st
 import joblib
 import pandas as pd
 
-# -----------------------------
 # Page Configuration
-# -----------------------------
 st.set_page_config(
     page_title="Wine Quality Prediction",
     page_icon="🍷",
     layout="wide"
 )
 
-# -----------------------------
 # Load Model
-# -----------------------------
 model = joblib.load("wine_quality_model.pkl")
 
-# -----------------------------
 # Custom CSS
-# -----------------------------
 st.markdown("""
 <style>
 
@@ -40,9 +34,7 @@ h1{
 </style>
 """, unsafe_allow_html=True)
 
-# -----------------------------
 # Title
-# -----------------------------
 st.title("🍷 Wine Quality Prediction System")
 
 st.markdown("""
@@ -52,9 +44,7 @@ using a **Random Forest Machine Learning Model**.
 
 st.divider()
 
-# -----------------------------
 # Sidebar
-# -----------------------------
 st.sidebar.header("📖 About")
 
 st.sidebar.info("""
@@ -74,10 +64,8 @@ Wine Quality Classes:
 3 - 8
 """)
 
-# -----------------------------
 # Input Section
-# -----------------------------
-st.subheader("🍇 Enter Wine Characteristics")
+st.subheader("Enter Wine Characteristics")
 
 col1, col2 = st.columns(2)
 
@@ -107,9 +95,7 @@ with col2:
 
     alcohol = st.slider("Alcohol",8.0,15.0,9.4)
 
-# -----------------------------
 # Prediction
-# -----------------------------
 if st.button("🍷 Predict Wine Quality", use_container_width=True):
 
     input_data = pd.DataFrame([[
@@ -168,10 +154,8 @@ if st.button("🍷 Predict Wine Quality", use_container_width=True):
 
 st.divider()
 
-# -----------------------------
 # Model Performance
-# -----------------------------
-st.subheader("📊 Model Performance")
+st.subheader("Model Performance")
 
 c1,c2,c3,c4 = st.columns(4)
 
